@@ -1,0 +1,209 @@
+<div class="row">
+    <div class="col">
+        <div class="card-header modulo-title text-light bg-gradient" >
+            <span>
+                <img alt="" style="height: 24px;" src="../img/svg/package.svg"/>
+                <span class="h5">M&oacute;dulo de Gesti&oacute;n de Empleado</span>
+
+            </span>
+            <span class="float-end"><a class="text-light" href="#" onclick="cerrarModulo();">
+                    <i class="fas fa-times"></i>
+                </a>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="row mt-2">
+    <div id="divDetalle" class="col-12">
+        <div class="card">
+            <div class="card-header card-hform">
+                Detalles del Empleado
+                <span class="float-end">
+                </span>
+            </div>
+            <div class="card-body">
+                <div class="form">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-12 col-md-3 mb-1">                        
+                                    <div class="form-floating bg-gradient m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                        <input id="txtNombre" type="text" class="form-control" />
+                                        <label for="txtNombre">Nombre</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 mb-1 mb-md-0">                            
+                                    <div class="form-floating bg-gradient m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                        <input id="txtApellidop" type="text" class="form-control" />
+                                        <label for="txtApellidop">Apellido Paterno</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 mb-1 mb-md-0">                            
+                                    <div class="form-floating bg-gradient m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                        <input id="txtApellidoMa" type="text" class="form-control" />
+                                        <label for="txtApellidoMa">Apellido Materno</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 mb-1 mb-md-0">  
+                                    <div class="form-floating bg-gradient m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                        <label for="txtGenero" ></label>
+                                        <select class="form-select" id="txtGenero" >
+                                            <option value="H">Hombre</option>
+                                            <option value="M">Mujer</option>
+                                            <option value="O">Otro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-3 mb-1">                        
+                                    <div class="form-floating bg-gradient m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                        <input id="txtfecha" type="text" class="form-control" />
+                                        <label for="txtfecha">Fecha Nacimiento</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 mb-1 mb-md-0">                            
+                                    <div class="form-floating bg- m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                        <input id="txtCalle" type="text" class="form-control" />
+                                        <label for="txtCalle">Calle</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 mb-1 mb-md-0">                            
+                                    <div class="form-floating bg- m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                        <input id="txtNum" type="text" class="form-control" />
+                                        <label for="txtNum">Numero de calle</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 mb-1 mb-md-0">                            
+                                    <div class="form-floating bg- m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                        <input id="txtColonia" type="text" class="form-control" />
+                                        <label for="txtColonia">Colonia</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-3 mb-1">                        
+                                    <div class="form-floating bg-gradient m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                        <input id="txtCp" type="text" class="form-control" />
+                                        <label for="txtCp">Codigo Postal</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 mb-1 mb-md-0">                            
+                                    <div class="form-floating bg- m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                        <input id="txtCiudad" type="text" class="form-control" />
+                                        <label for="txtCiudad">Ciudad</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 mb-1 mb-md-0">                            
+                                    <div class="form-floating bg- m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                        <input id="txtEstado" type="text" class="form-control" />
+                                        <label for="txtEstado">Estado</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 mb-1 mb-md-0">                            
+                                    <div class="form-floating bg- m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                        <input id="txtTelCasa" type="text" class="form-control" />
+                                        <label for="txtTelCasa">Tel Casa</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-2 mb-1">                        
+                                    <div class="form-floating bg-gradient m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                        <input id="txtTelMovil" type="text" class="form-control" />
+                                        <label for="txtTelMovil">Tel Movil</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-2 mb-1 mb-md-0">                            
+                                    <div class="form-floating bg- m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                        <input id="txtEmail" type="text" class="form-control" />
+                                        <label for="txtEmail">Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-2 mb-1 mb-md-0">                            
+                                    <div class="form-floating bg- m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                        <input id="txtUser" type="text" class="form-control" />
+                                        <label for="txtUser">Usuario</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-2 mb-1 mb-md-0">                            
+                                    <div class="form-floating bg- m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                        <input id="txtContrassenia" type="text" class="form-control" />
+                                        <label for="txtContrassenia">Contraseñia</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4 mb-1 mb-md-0">                            
+                                    <div class="form-floating bg- m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                        <input id="txtRol" type="text" class="form-control" />
+                                        <label for="txtRol">Rol</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-md-center">
+                                <div class=" col-12 col-md-4 my-2 text-center">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <button class="btn btn-primary" onclick="cm.empleado();"><i class="fas fa-save"></i>&nbsp;&nbsp;Guardar</button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button class="btn btn-dark" onclick="cm.actualizarEmpleado();"><i class="fas fa-wrench"></i>&nbsp;Modificar</button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button class="btn btn-success" onclick="cm.limpiar()"><i class="fas fa-file"></i>&nbsp;&nbsp;Nuevo</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="divCatalogo" class="col-12 m-2">
+        <div class="card">
+            <div class="card-header card-hform">
+                Listado de Empleados
+                <span style="margin-left: 800px;">
+                    <input  id="txtSearch" type="search">
+                    <i class="fas fa-search"></i>
+                    <button class="btn btn-sm btn-outline-light my-2" 
+                            onclick="cm.buscarEmpleado();">Buscar </button>
+                </span>
+            </div>
+            <div class="card-body card-group">
+                <table id="tblEmpleados" class="table table-hover table-responsive-sm table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Genero</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>Direccion</th>
+                            <th>Tels</th>
+                            <th>Correo</th>
+                            <th>Usuario</th>
+                            <th>N.U</th>
+                            <th>Estatus</th>
+                            <th><th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyEmpleados"></tbody>
+                </table>
+            </div>
+            <div class="row justify-content-md-center">  
+                <div class=" col-12 col-md-4 my-2 text-center">
+                    <div class="row">
+                        <div class="col-6 mb-md-3">
+                            <button class="btn btn-light" onclick="cm.catalogoEmpleado();"><i class="fas fa-wave-square"></i>&nbsp;Mostrar Activos</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-dark" onclick="cm.catalogoEmpleadoInac();"><i class="fas fa-bank"></i>&nbsp;Mostrar Inactivos</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
