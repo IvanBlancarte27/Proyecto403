@@ -1,6 +1,16 @@
 let clientes;
-export function insertarCliente() {
+let empleados;
+function formatearFecha(valor) {
 
+    let date = new Date(valor); 
+    const formatDate = (date) => {
+        let formatted_date = (date.getDate()+1)+ "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+        return formatted_date;
+    }
+}
+
+export function insertarCliente() {
+     
     let nombre = document.getElementById("txtNombreC").value;
     let app = document.getElementById("txtApellidopC").value;
     let apm = document.getElementById("txtApellidoMaC").value;
@@ -15,15 +25,16 @@ export function insertarCliente() {
     let telCasa = document.getElementById("txtTelCasaC").value;
     let telMo = document.getElementById("txtTelMovilC").value;
     let email = document.getElementById("txtEmailC").value;
-
-    // alert(fechaNac);
+    
+    //alert(fechaNac);
+    
     let persona = {nombre: nombre, apellidoPaterno: app, apellidoMaterno: apm, genero: genero, fechaNacimiento: fechaNac, calle: calle, numero: num, colonia: colonia, cp: cp, ciudad: ciudad, estado: estado, telCasa: telCasa, telMovil: telMo, email: email};
 
     let cliente = JSON.stringify({persona: persona});
 
     //JSON.stringify convierte en String
 
-    let parametros = new URLSearchParams({datos: cliente});
+    let parametros = new URLSearchParams({datos:cliente});
 
     fetch('../api/cliente/insertar',
             {
@@ -206,13 +217,11 @@ export function actualizarCliente() {
 }
 
 export function eliminar() {
-
-    if (status === 0) {
-        status = 1;
-    } else {
+    if (status === 1) {
         status = 0;
+    } else {
+        status = 1;
     }
-
     let cliente = JSON.stringify({idCliente: idClie, estatus: status});
     let parametros = new URLSearchParams({datos: cliente});
 
@@ -229,12 +238,12 @@ export function eliminar() {
 
 }
 
-export function buscarCliente() {
+export function buscarCliente(){
 
     let busqueda = document.getElementById("txtSearch").value;
 
     let parametro = {"buscar": busqueda};
-    fetch('../api/cliente/buscar?busqueda=' + busqueda)
+    fetch('../api/cliente/buscar?busqueda='+busqueda)
             .then(response => response.json())
             .then(data => {
                 cargarTable(data);

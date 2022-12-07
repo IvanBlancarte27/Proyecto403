@@ -1,37 +1,38 @@
 let empleados;
 export function formatearFecha(valor) {
 
-//    let date = new Date(fecha); 
-//    const formatDate = (date) => {
-//        let formatted_date = (date.getDate()+1)+ "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
-//        return formatted_date;
-//    }
-//    console.log(formatDate(date));
-    let fecha = valor;
-    let va1;
-    let va2;
-    let va3;
-    let va4;
-    let va5;
-    let va6;
-    let va7;
-    let va8;
-    let va9 = "/";
-    let va10 = "/";
-
-    va1 = fecha.toString().charAt(8);
-    va2 = fecha.toString().charAt(9);
-    va3 = fecha.toString().charAt(5);
-    va4 = fecha.toString().charAt(6);
-    va5 = fecha.toString().charAt(0);
-    va6 = fecha.toString().charAt(1);
-    va7 = fecha.toString().charAt(2);
-    va8 = fecha.toString().charAt(3);
-
-    fecha = va1 + va2 + va9 + va3 + va4 + va10 + va5 + va6 + va7 + va8;
-    return fecha;
+    let date = new Date(valor); 
+    const formatDate = (date) => {
+        let formatted_date = (date.getDate()+1)+ "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+        return formatted_date;
+    }
+    console.log(formatDate(date));
+//    let fecha = valor;
+//    let va1;
+//    let va2;
+//    let va3;
+//    let va4;
+//    let va5;
+//    let va6;
+//    let va7;
+//    let va8;
+//    let va9 = "/";
+//    let va10 = "/";
+//
+//    va1 = fecha.toString().charAt(8);
+//    va2 = fecha.toString().charAt(9);
+//    va3 = fecha.toString().charAt(5);
+//    va4 = fecha.toString().charAt(6);
+//    va5 = fecha.toString().charAt(0);
+//    va6 = fecha.toString().charAt(1);
+//    va7 = fecha.toString().charAt(2);
+//    va8 = fecha.toString().charAt(3);
+//
+//    fecha = va1 + va2 + va9 + va3 + va4 + va10 + va5 + va6 + va7 + va8;
+//    return fecha;
     //alert(fecha);
 }
+
 export function empleado() {
 
     let nombre = document.getElementById("txtNombre").value;

@@ -5,7 +5,7 @@
                 <img alt="" style="height: 24px;" src="../img/svg/package.svg"/>
                 <span class="h5 text-white">M&oacute;dulo de Gesti&oacute;n de Soluciones</span>
                 <span style="margin-left: 16px;">
-               
+
                 </span>                
             </span>
             <span class="float-end"><a class="text-light" href="#" onclick="cerrarModulo();">
@@ -15,7 +15,7 @@
         </div>
     </div>    
 </div>
-<div class="row mt-2">
+<div class="row">
     <div id="divDetalle" class="col-12">
         <div class="card">
             <div class="card-header card-hform">
@@ -68,49 +68,61 @@
                             <div class=" col-12 col-md-4 my-3 text-center">
                                 <div class="row">
                                     <div class="col-4">
-                                        <button class="btn btn-primary" onclick="cm.save();"><i class="fas fa-save"></i>&nbsp;&nbsp;Guardar</button>
+                                        <button class="btn btn-primary" onclick="cm.insertarSolucion();"><i class="fas fa-save"></i>&nbsp;&nbsp;Guardar</button>
                                     </div>
                                     <div class="col-4">
-                                        <button class="btn btn-danger" onclick="cm.remove();"><i class="fas fa-trash"></i>&nbsp;Eliminar</button>
+                                        <button class="btn btn-dark" onclick="cm.modificarSolucion();"><i class="fas fa-wrench"></i>&nbsp;Modificar</button>
                                     </div>
                                     <div class="col-4">
-                                        <button class="btn btn-success" onclick="cm.limpiarFormularioDetalle(); cm.limpiar_y_mostrarDetalle();"><i class="fas fa-file"></i>&nbsp;&nbsp;Nuevo</button>
+                                        <button class="btn btn-success" onclick="cm.borrarSolucion();"><i class="fas fa-file"></i>&nbsp;&nbsp;Nuevo</button>
                                     </div>
                                 </div>
                             </div>
-                        </div>                       
+                        </div>                      
                     </div>
                 </div>
             </div>
         </div>    
     </div>
-    <div class="row mt-2">
-        <div id="divCatalogo" class="col-12 mt-2 mt-md-2 mt-lg-0">
-            <div class="card">
-                <div class="card-header card-hform">
-                    Listado de Soluciones
-                </div>
-                <div class="card-body">                
-                    <table id="tblSolucion" class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Marca</th>
-                                <th>Precio Compra</th>
-                                <th>Precio Venta</th>
-                                <th>Existencias</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbodySolucion"></tbody>
-                    </table>
+    <div id="divCatalogo" class="col-12">
+        <div class="card">
+            <div class="card-header card-hform">
+                Listado de Soluciones
+                <span style="margin-left: 800px;">
+                    <input  id="txtSearch" type="search">
+                    <i class="fas fa-search"></i>
+                    <button class="btn btn-sm btn-outline-light my-2" 
+                            onclick="cm.buscarSoluciones();">Buscar </button>
+                </span>
+            </div>
+            <div class="card-body">
+                <table id="tblSoluciones" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Marca</th>
+                            <th>Precio Compra</th>
+                            <th>Precio Venta</th>
+                            <th>Existencias</th>
+                            <th>Estatus</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodySoluciones"></tbody>
+                </table>
+            </div>
+            <div class="row justify-content-md-center">  
+                <div class=" col-12 col-md-4 my-2 text-center">
+                    <div class="row">
+                        <div class="col-6 mb-md-3">
+                            <button class="btn btn-light" onclick="cm.catalogoSoluciones();"><i class="fas fa-wave-square"></i>&nbsp;Mostrar Activos</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-dark" onclick="cm.catalogoSolucionesInactivo();"><i class="fas fa-bank"></i>&nbsp;Mostrar Inactivos</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div id="contenedor_solucion" class="p-2 justify-content-center">
-
-        </div>
-    </div>
+</div>

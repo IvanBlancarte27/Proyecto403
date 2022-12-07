@@ -1,7 +1,6 @@
 package org.utl.dsm.rest;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonParseException;
 import jakarta.ws.rs.DefaultValue;
 import jakarta.ws.rs.FormParam;
 import jakarta.ws.rs.GET;
@@ -9,55 +8,55 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
-import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import java.sql.SQLException;
 import java.util.List;
-import org.utl.dsm.optica.controller.ControllerClientes;
-import org.utl.dsm.optica.model.Cliente;
+import org.utl.dsm.optica.controller.ControllerTratamiento;
+import org.utl.dsm.optica.model.Tratamiento;
 
 
-@Path("cliente")
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+/**
+ *
+ * @author yahir
+ */
+@Path("tratamiento")
+public class TratamientoREST {
 
-public class ClienteRest extends Application {
-
-    @Path("insertar")
+    @Path("insertarTratamiento")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertar(@FormParam("datos") @DefaultValue("") String datos) {
+    public Response insertarTratamiento(@FormParam("datos") @DefaultValue("") String datos) {
         Gson gson = new Gson();
-        Cliente cliente = new Cliente();
+        Tratamiento tratamiento = new Tratamiento();
         //El punto class es la especificacion que contiene la clase
-        cliente = gson.fromJson(datos, Cliente.class);
+        tratamiento = gson.fromJson(datos, Tratamiento.class);
         String out = "";
-        ControllerClientes objCE = new ControllerClientes();
+        ControllerTratamiento objCT = new ControllerTratamiento();
         try {
-            objCE.insertCliente(cliente);
-            out = gson.toJson(cliente);
-        } catch (JsonParseException jpe) {
-            out = """
-                   {"error": "Error de formato"}
-                   """;
+            objCT.insertarTratamiento(tratamiento);
+            out = gson.toJson(tratamiento);
         } catch (SQLException ex) {
 
             out = "{\"error\":\"" + ex.toString() + "\"}";
-
         }
-
         return Response.status(Response.Status.OK).entity(out).build();
     }
 
-    @Path("getAll")
+    @Path("getAllTratamiento")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAll(@FormParam("estatus") @DefaultValue("1") String estatus) {
+    public Response getAllTratamiento(@FormParam("estatus") @DefaultValue("1") String estatus) {
         String out = "";
         try {
-            ControllerClientes cmClientes = new ControllerClientes();
-            List<Cliente> clientes = cmClientes.getAll(estatus);
+            ControllerTratamiento cmTratamiento = new ControllerTratamiento();
+            List<Tratamiento> tratamientos = cmTratamiento.getAllTratamientol(estatus);
             Gson gs = new Gson();
-            out = gs.toJson(clientes);
+            out = gs.toJson(tratamientos);
         } catch (Exception ex) {
             System.out.println(ex.toString());
             //Poner diagonal inversa Alt+92
@@ -66,16 +65,16 @@ public class ClienteRest extends Application {
         return Response.status(Response.Status.OK).entity(out).build();
     }
 
-    @Path("getAllInacticvos")
+    @Path("getAllInactivosTratamientos")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllInac(@FormParam("estatus") @DefaultValue("0") String estatus) {
+    public Response getAllInactivosTratamientos(@FormParam("estatus") @DefaultValue("0") String estatus) {
         String out = "";
         try {
-            ControllerClientes cmClientes = new ControllerClientes();
-            List<Cliente> empleados = cmClientes.getAll(estatus);
+            ControllerTratamiento cmTratamientos = new ControllerTratamiento();
+            List<Tratamiento> tratamientos = cmTratamientos.getAllTratamientol(estatus);
             Gson gs = new Gson();
-            out = gs.toJson(empleados);
+            out = gs.toJson(tratamientos);
         } catch (Exception ex) {
             System.out.println(ex.toString());
             //Poner diagonal inversa Alt+92
@@ -84,68 +83,56 @@ public class ClienteRest extends Application {
         return Response.status(Response.Status.OK).entity(out).build();
     }
 
-    @Path("Actualizar")
+    @Path("BorrarTratamiento")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Response actualizar(@FormParam("datos") @DefaultValue("") String datos) {
+    public Response BorrarTratamiento(@FormParam("datos") @DefaultValue("1") String datos) {
         Gson gson = new Gson();
-        Cliente cliente = new Cliente();
+        Tratamiento tratamiento = new Tratamiento();
         //El punto class es la especificacion que contiene la clase
-        cliente = gson.fromJson(datos, Cliente.class);
+        tratamiento = gson.fromJson(datos, Tratamiento.class);
         String out = "";
-        ControllerClientes obClientes = new ControllerClientes();
+        ControllerTratamiento objCT = new ControllerTratamiento();
         try {
-            obClientes.actualizarEmpleado(cliente);
-            out = gson.toJson(cliente);
-        } catch (JsonParseException jpe) {
-            out = """
-                   {"error": "Error de formato"}
-                   """;
+            objCT.borrarTratamiento(tratamiento);
+            out = gson.toJson(tratamiento);
         } catch (SQLException ex) {
 
             out = "{\"error\":\"" + ex.toString() + "\"}";
-
         }
-
         return Response.status(Response.Status.OK).entity(out).build();
     }
 
-    @Path("Eliminar")
+    @Path("modificarTratamiento")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Response eliminar(@FormParam("datos") @DefaultValue("") String datos) {
+    public Response modificarTratamiento(@FormParam("datos") @DefaultValue("") String datos) {
         Gson gson = new Gson();
-        Cliente cliente = new Cliente();
+        Tratamiento tratamiento = new Tratamiento();
         //El punto class es la especificacion que contiene la clase
-        cliente = gson.fromJson(datos, Cliente.class);
+        tratamiento = gson.fromJson(datos, Tratamiento.class);
         String out = "";
-        ControllerClientes objCE = new ControllerClientes();
+        ControllerTratamiento objCT = new ControllerTratamiento();
         try {
-            objCE.Eliminar(cliente);
-            out = gson.toJson(cliente);
-        } catch (JsonParseException jpe) {
-            out = """
-                   {"error": "Error de formato"}
-                   """;
+            objCT.modificarTratamiento(tratamiento);
+            out = gson.toJson(tratamiento);
         } catch (SQLException ex) {
 
             out = "{\"error\":\"" + ex.toString() + "\"}";
-
         }
-
         return Response.status(Response.Status.OK).entity(out).build();
     }
 
-    @Path("buscar")
+    @Path("BuscarTratamiento")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response buscar(@QueryParam("busqueda") @DefaultValue("ivan") String busqueda) {
+    public Response BuscarTratamiento(@QueryParam("buscar") @DefaultValue("a") String buscar) {
         String out = "";
         try {
-            ControllerClientes cc = new ControllerClientes();
-            List<Cliente> clientes = cc.search(busqueda);
+            ControllerTratamiento cmTratamiento = new ControllerTratamiento();
+            List<Tratamiento> tratamientos = cmTratamiento.BuscarTratamiento(buscar);
             Gson gs = new Gson();
-            out = gs.toJson(clientes);
+            out = gs.toJson(tratamientos);
         } catch (Exception ex) {
             System.out.println(ex.toString());
             //Poner diagonal inversa Alt+92

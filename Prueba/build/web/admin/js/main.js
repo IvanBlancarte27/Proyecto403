@@ -34,10 +34,10 @@ fetch('productos/accesorios/accesorios.html')
                 cm = obj;
                 });
         });
-}
+        }
 
 function cargarModuloLentes(){
-    //AJAX: Asynchronous
+//AJAX: Asynchronous
 fetch('productos/lentes_contacto/lentesdecontacto.html')
         .then(respuesta => {
         //Devolvemos el contenido
@@ -54,10 +54,10 @@ fetch('productos/lentes_contacto/lentesdecontacto.html')
                 cm = obj;
                 });
         });
-}
+        }
 
 function cargarModuloSolucion(){
-    //AJAX: Asynchronous
+//AJAX: Asynchronous
 fetch('productos/solucion/solucion.html')
         .then(respuesta => {
         //Devolvemos el contenido
@@ -74,7 +74,7 @@ fetch('productos/solucion/solucion.html')
                 cm = obj;
                 });
         });
-}
+        }
 
 function cargarModuloClientes() {
 fetch('cliente/cliente.html')
@@ -83,6 +83,18 @@ fetch('cliente/cliente.html')
         .then(datos => {
         document.getElementById('contenedor_principal').innerHTML = datos;
         import('./cliente.js').then(obj => {
+        cm = obj;
+        });
+        });
+}
+
+function cargarModuloTratamiento() {
+fetch('tratamiento/tratamiento.html')
+        .then(respuesta => {
+        return respuesta.text(); })
+        .then(datos => {
+        document.getElementById('contenedor_principal').innerHTML = datos;
+        import('./tratamiento.js').then(obj => {
         cm = obj;
         });
         });

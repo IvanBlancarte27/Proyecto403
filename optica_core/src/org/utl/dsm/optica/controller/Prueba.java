@@ -31,7 +31,7 @@ public class Prueba {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws SQLException {
-        //probarConexion();
+        probarConexion();
         //probarInsert();
         //probarGetAll();
         //probarActualizar();
@@ -41,7 +41,7 @@ public class Prueba {
         //probarEliminarAccesorio();
         //probarInsertarLentes();
         //probarActualizarLentes();
-        probarInsertarCliente();
+        //probarInsertarCliente();
     }
 
     public static void probarConexion() {
@@ -205,7 +205,8 @@ public class Prueba {
     }
 
     public static void probarInsertarCliente() {
-        Persona persona = new Persona(1, "Alan", "Contreras", "Ramos", "H", "27/02/2003", "Independendia", "312", "Loza", "37680", "Leon", "Guadalajara", "4771189966", "47789635", "jaime23@gmail.com");
+       
+        Persona persona = new Persona("Alexi", "Aguayo", "Ramos", "H", "27/02/2003", "Independendia", "312", "Loza", "37680", "Leon", "Guadalajara", "4771189966", "47789635", "jaime23@gmail.com");
         Cliente c = new Cliente("", 0, persona);
         
         ControllerClientes cc = new ControllerClientes();

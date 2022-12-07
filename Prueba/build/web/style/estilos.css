@@ -1,7 +1,7 @@
 
 .fondoLogin
 {
-    background-image: url('../img/fondoGrisAm.jpg');
+    background-image: url('../img/fondoAzulAmarilloRojo.png');
     background-size: cover;
 }
 
@@ -53,7 +53,7 @@
 .fondoMenu
 {
     background-color: #04272E;
-    background-image: url(../img/fondoGrisAm.jpg);
+    background-image: url(../img/fondoAzulAmarilloRojo.png);
     background-size: cover;
     background-repeat: repeat-y;
 }
