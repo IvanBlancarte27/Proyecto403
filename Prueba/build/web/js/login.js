@@ -1,4 +1,13 @@
 
+function cargarLogin() {
+fetch('admin/index.html')
+        .then(respuesta => {
+        return respuesta.text(); })
+        .then(datos => {
+        
+        });
+        }
+
 
 
 function login()
@@ -8,5 +17,6 @@ function login()
 
 function logout()
 {
-    window.location.replace('/optica_rnew/index.html');   
+    window.location.replace('/Prueba/index.html');   
 }
+

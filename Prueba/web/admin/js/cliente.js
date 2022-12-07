@@ -2,11 +2,11 @@ let clientes;
 let empleados;
 function formatearFecha(valor) {
 
-    let date = new Date(valor); 
-    const formatDate = (date) => {
-        let formatted_date = (date.getDate()+1)+ "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
-        return formatted_date;
-    }
+//    let date = new Date(valor); 
+//    const formatDate = (date) => {
+//        let formatted_date = (date.getDate()+1)+ "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+//        return formatted_date;
+//    }
 }
 
 export function insertarCliente() {
@@ -45,8 +45,9 @@ export function insertarCliente() {
             .then(data => {
                 //let msj = "Empleado insertado con ID" + data.idEmpleado;
                 //alert(msj);
-                if (data.error)
-                    alert(JSON.stringify(data));
+                if (data.error!= null   )
+                    //alert(JSON.stringify(data));
+                     mandarError();
                 else
                     mandarConfirmacionGuardar();
             });
@@ -160,14 +161,14 @@ export function limpiar() {
     document.getElementById("txtNombreC").value = "";
     document.getElementById("txtApellidopC").value = "";
     document.getElementById("txtApellidoMaC").value = "";
-    document.getElementById("txtGeneroC").value = "";
+    document.getElementById("txtGeneroC").value = "Genero";
     document.getElementById("txtfechaC").value = "";
     document.getElementById("txtCalleC").value = "";
     document.getElementById("txtNumC").value = "";
     document.getElementById("txtColoniaC").value = "";
     document.getElementById("txtCpC").value = "";
     document.getElementById("txtCiudadC").value = "";
-    document.getElementById("txtEstadoC").value = "";
+    document.getElementById("txtEstadoC").value ="Seleccione un Estado...";
     document.getElementById("txtTelCasaC").value = "";
     document.getElementById("txtTelMovilC").value = "";
     document.getElementById("txtEmailC").value = "";
@@ -210,9 +211,10 @@ export function actualizarCliente() {
                 //let msj = "Empleado insertado con ID" + data.idEmpleado;
                 //alert(msj);
                 if (data.error)
-                    alert(JSON.stringify(data));
+                    //alert(JSON.stringify(data));
+                    mandarErrorActualizar();
                 else
-                    mandarConfirmacionGuardar();
+                    mandarConfirmacionActualizar();
             });
 }
 
@@ -233,7 +235,8 @@ export function eliminar() {
             }).then(response => response.json())
             .then(data => {
                 if (data)
-                    alert(JSON.stringify(data));
+                    //alert(JSON.stringify(data));
+                    mandarConfirmacionEliminar();
             });
 
 }

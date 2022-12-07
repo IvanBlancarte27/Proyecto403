@@ -1,12 +1,12 @@
 let empleados;
 export function formatearFecha(valor) {
 
-    let date = new Date(valor); 
-    const formatDate = (date) => {
-        let formatted_date = (date.getDate()+1)+ "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
-        return formatted_date;
-    }
-    console.log(formatDate(date));
+//    let date = new Date(valor); 
+//    const formatDate = (date) => {
+//        let formatted_date = (date.getDate()+1)+ "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+//        return formatted_date;
+//    }
+//    console.log(formatDate(date));
 //    let fecha = valor;
 //    let va1;
 //    let va2;
@@ -40,7 +40,7 @@ export function empleado() {
     let apm = document.getElementById("txtApellidoMa").value;
     let genero = document.getElementById("txtGenero").value;
     let fechaNac = document.getElementById("txtfecha").value;
-    fechaNac = formatearFecha(fechaNac);
+//    fechaNac = formatearFecha(fechaNac);
     let calle = document.getElementById("txtCalle").value;
     let num = document.getElementById("txtNum").value;
     let colonia = document.getElementById("txtColonia").value;
@@ -76,7 +76,8 @@ export function empleado() {
                 //let msj = "Empleado insertado con ID" + data.idEmpleado;
                 //alert(msj);
                 if (data.error)
-                    alert(JSON.stringify(data));
+                  //alert(JSON.stringify(data));
+                      mandarError();
                 else
                     mandarConfirmacionGuardar();
             });
@@ -121,6 +122,11 @@ export function catalogoEmpleadoInac() {
             });
 }
 
+let idUs;
+let idPe;
+let idEm;
+let estatus;
+
 export function cargarTable(data) {
     empleados = data;
     let contenidoTablaEmpleados = "";
@@ -142,32 +148,27 @@ export function cargarTable(data) {
         contenidoTablaEmpleados += "<td>" + usuario + "</td>";
         let numUsu = empleados[i].usuario.idUsuario;
         contenidoTablaEmpleados += "<td>" + numUsu + "</td>";
-        let estatus = empleados[i].estatus;
-        contenidoTablaEmpleados += "<td>" + estatus + "</td>";
+        let status = empleados[i].estatus;
+        contenidoTablaEmpleados += "<td>" + status + "</td>";
 
         contenidoTablaEmpleados += "<td><button class='btn btn-info' onclick='cm.cargarFrmEm(" + i + ");'>Detalle</button></td>";
 
-        if (estatus === 1) {
+        if (status === 1) {
             contenidoTablaEmpleados += "<td><button class='btn btn-danger' onclick='cm.eliminar();'>Eliminar</button></td>";
         } else {
             contenidoTablaEmpleados += "<td><button  class='btn btn-success' onclick='cm.eliminar();'>Activar</button></td>";
         }
 
         contenidoTablaEmpleados += "</tr>";
-
-
     }
 
     document.getElementById("tbodyEmpleados").innerHTML = contenidoTablaEmpleados;
 }
 
-let idUs;
-let idPe;
-let idEm;
-let estatus;
+
 //cargarFrmEm ---- Cargar formulario empleados 
 export function cargarFrmEm(i) {
-    alert(i);
+    //alert(i);
     document.getElementById("txtNombre").value = empleados[i].persona.nombre;
     document.getElementById("txtApellidop").value = empleados[i].persona.apellidoPaterno;
     document.getElementById("txtApellidoMa").value = empleados[i].persona.apellidoMaterno;
@@ -184,12 +185,12 @@ export function cargarFrmEm(i) {
     document.getElementById("txtEmail").value = empleados[i].persona.email;
     document.getElementById("txtUser").value = empleados[i].usuario.nombre;
     document.getElementById("txtRol").value = empleados[i].usuario.rol;
-    document.getElementById("txtContrassenia").value = empleados[i].usuario.contrasenia;
+    
 
     idUs = empleados[i].usuario.idUsuario;
     idPe = empleados[i].persona.idPersona;
     idEm = empleados[i].idEmpleado;
-    status = empleados[i].estatus;
+    estatus = empleados[i].estatus;
 
 }
 
@@ -198,23 +199,25 @@ export function limpiar() {
     document.getElementById("txtNombre").value = "";
     document.getElementById("txtApellidop").value = "";
     document.getElementById("txtApellidoMa").value = "";
-    document.getElementById("txtGenero").value = "";
+    document.getElementById("txtGenero").value ="Genero";
     document.getElementById("txtfecha").value = "";
     document.getElementById("txtCalle").value = "";
     document.getElementById("txtNum").value = "";
     document.getElementById("txtColonia").value = "";
     document.getElementById("txtCp").value = "";
     document.getElementById("txtCiudad").value = "";
-    document.getElementById("txtEstado").value = "";
+    document.getElementById("txtEstado").value ="Seleccione un Estado...";
     document.getElementById("txtTelCasa").value = "";
     document.getElementById("txtTelMovil").value = "";
     document.getElementById("txtEmail").value = "";
     document.getElementById("txtUser").value = "";
-    document.getElementById("txtRol").value = "";
+    document.getElementById("txtRol").value ="Rol";
+    
 
 }
 
 export function actualizarEmpleado() {
+    
     //alert(idUs + " " + idPe + " " + idEm);
 
     let nombre = document.getElementById("txtNombre").value;
@@ -222,7 +225,7 @@ export function actualizarEmpleado() {
     let apm = document.getElementById("txtApellidoMa").value;
     let genero = document.getElementById("txtGenero").value;
     let fechaNac = document.getElementById("txtfecha").value;
-    fechaNac = formatearFecha(fechaNac);
+    //fechaNac = formatearFecha(fechaNac);
     let calle = document.getElementById("txtCalle").value;
     let num = document.getElementById("txtNum").value;
     let colonia = document.getElementById("txtColonia").value;
@@ -236,8 +239,9 @@ export function actualizarEmpleado() {
     let contrasennia = document.getElementById("txtContrassenia").value;
     let rol = document.getElementById("txtRol").value;
 
-
-
+    if (nombre===null) {
+        mandarErrorActualizar();
+    }
     // alert(fechaNac);
     let usuario = {idUsuario: idUs, nombre: us, contrasenia: contrasennia, rol: rol};
 
@@ -248,7 +252,8 @@ export function actualizarEmpleado() {
     //JSON.stringify convierte en String
 
     let parametros = new URLSearchParams({datos: empleado});
-
+    
+    
     fetch('../api/empleado/Actualizar',
             {
                 method: 'POST',
@@ -257,24 +262,22 @@ export function actualizarEmpleado() {
             }).then(response => response.json())
             .then(data => {
                 if (data.error)
-                    alert(JSON.stringify(data));
+                    mandarErrorActualizar();
+                    //alert(JSON.stringify(data));
                 else
                     mandarConfirmacionActualizar();
             });
-
-
+        
 }
 
-
 export function eliminar() {
-
-    if (status === 0) {
-        status = 1;
+    if (estatus === 0) {
+        estatus = 1;
     } else {
-        status = 0;
+        estatus = 0;
     }
 
-    let empleado = JSON.stringify({idEmpleado: idEm, estatus: status});
+    let empleado = JSON.stringify({idEmpleado: idEm, estatus: estatus});
     let parametros = new URLSearchParams({datos: empleado});
 
     fetch('../api/empleado/Eliminar',
@@ -285,9 +288,10 @@ export function eliminar() {
             }).then(response => response.json())
             .then(data => {
                 if (data)
-                    alert(JSON.stringify(data));
+                    //alert(JSON.stringify(data));
+                    mandarConfirmacionEliminar();
             });
-
+            
 }
 
 

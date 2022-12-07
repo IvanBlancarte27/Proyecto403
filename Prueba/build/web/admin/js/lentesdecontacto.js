@@ -30,8 +30,8 @@ export function insertarLentesContacto() {
                 //let msj = "Lente Insertado con ID" + data.idAccesorio;
                 //alert(JSON.stringify(data));
                 //alert(msj);
-                if (data.error)
-                    alert(JSON.stringify(data));
+                if (data.error!=null)
+                    mandarErrorGeneral();
                 else
                     mandarConfirmacionGuardar();
             });
@@ -49,8 +49,9 @@ export function catalagoLentesContactoAct() {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'}
             }).then(response => response.json())
             .then(data => {
-                if (data.error != null) {
-                    alert(JSON.stringify(data));
+                if (data.error!=null) {
+                    //alert(JSON.stringify(data));
+            
                 } else {
                     cargarTableLentesContacto(data);
                 }
@@ -68,7 +69,7 @@ export function catalagoLentesContactoInac() {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'}
             }).then(response => response.json())
             .then(data => {
-                if (data.error != null) {
+                if (data.error !=null) {
                     alert(JSON.stringify(data));
                 } else {
                     cargarTableLentesContacto(data);
@@ -82,7 +83,6 @@ let status;
 export function cargarTableLentesContacto(data) {
     lentes = data;
     let contenidoTablaLentes = "";
-
     for (var i = 0; i < lentes.length; i++) {
         contenidoTablaLentes += "<tr>";
         let nombre = lentes[i].producto.nombre;
@@ -177,8 +177,9 @@ export function modificarLentes() {
                 //let msj = "Lente Insertado con ID" + data.idAccesorio;
                 //alert(JSON.stringify(data));
                 //alert(msj);
-                if (data.error)
-                    alert(JSON.stringify(data));
+                if (data.error!=null)
+                    //alert(JSON.stringify(data));
+                        mandarErrorGeneral();
                 else
                     mandarConfirmacionActualizar();
             });
@@ -206,7 +207,8 @@ export function eliminarLentes() {
                 //alert(JSON.stringify(data));
                     
                 if (data.erro){
-                    alert(JSON.stringify(data));
+                    //alert(JSON.stringify(data));
+                    mandarErrorGeneral();
                 }else{
                         mandarConfirmacionEliminar();                   
                 }

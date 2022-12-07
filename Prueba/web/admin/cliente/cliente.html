@@ -5,10 +5,6 @@
                 <img alt="" style="height: 24px;" src="../img/svg/package.svg"/>
                 <span class="h5">M&oacute;dulo de Gesti&oacute;n de Clientes</span>
                 <span style="margin-left: 16px;">
-                    <button class="btn btn-sm btn-outline-light my-2" 
-                            onclick="cm.setDetalleVisible(true);">
-                        <i class="fas fa-plus"></i>&nbsp;&nbsp;Agregar Nuevo
-                    </button>
                 </span>
             </span>
             <span class="float-end"><a class="text-light" href="#" onclick="cerrarModulo();">
@@ -53,6 +49,7 @@
                                     <div class="form-floating bg-gradient m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
                                         <label for="txtGeneroC" ></label>
                                         <select class="form-select" id="txtGeneroC" >
+                                            <option>Genero</option>
                                             <option value="H">Hombre</option>
                                             <option value="M">Mujer</option>
                                             <option value="O">Otro</option>
@@ -101,8 +98,42 @@
                                 </div>
                                 <div class="col-12 col-md-3 mb-1 mb-md-0">                            
                                     <div class="form-floating bg- m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
-                                        <input id="txtEstadoC" type="text" class="form-control" />
-                                        <label for="txtEstadoC">Estado</label>
+                                        <label for="txtEstadoC"></label>
+                                        <select class="form-select" id="txtEstadoC">
+                                            <option>Seleccione un Estado...</option>
+                                            <option value="Aguascalientes">Aguascalientes</option>
+                                            <option value="Baja California">Baja California</option>
+                                            <option value="Baja California Sur">Baja California Sur</option>
+                                            <option value="Campeche">Campeche</option>
+                                            <option value="Chiapas">Chiapas</option>
+                                            <option value="Chihuahua">Chihuahua</option>
+                                            <option value="CDMX">Ciudad de México</option>
+                                            <option value="Coahuila">Coahuila</option>
+                                            <option value="Colima">Colima</option>
+                                            <option value="Durango">Durango</option>
+                                            <option value="Estado de México">Estado de México</option>
+                                            <option value="Guanajuato">Guanajuato</option>
+                                            <option value="Guerrero">Guerrero</option>
+                                            <option value="Hidalgo">Hidalgo</option>
+                                            <option value="Jalisco">Jalisco</option>
+                                            <option value="Michoacán">Michoacán</option>
+                                            <option value="Morelos">Morelos</option>
+                                            <option value="Nayarit">Nayarit</option>
+                                            <option value="Nuevo León">Nuevo León</option>
+                                            <option value="Oaxaca">Oaxaca</option>
+                                            <option value="Puebla">Puebla</option>
+                                            <option value="Querétaro">Querétaro</option>
+                                            <option value="Quintana Roo">Quintana Roo</option>
+                                            <option value="San Luis Potosí">San Luis Potosí</option>
+                                            <option value="Sinaloa">Sinaloa</option>
+                                            <option value="Sonora">Sonora</option>
+                                            <option value="Tabasco">Tabasco</option>
+                                            <option value="Tamaulipas">Tamaulipas</option>
+                                            <option value="Tlaxcala">Tlaxcala</option>
+                                            <option value="Veracruz">Veracruz</option>
+                                            <option value="Yucatán">Yucatán</option>
+                                            <option value="Zacatecas">Zacatecas</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-3 mb-1 mb-md-0">                            
@@ -159,7 +190,7 @@
                 </span>
             </div>
             <div class="card-body">
-                <table id="tblClientes" class="table table-hover">
+                <table id="tblClientes" class="table table-hover table-dark">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -180,7 +211,7 @@
                 <div class=" col-12 col-md-4 my-2 text-center">
                     <div class="row">
                         <div class="col-6 mb-md-3">
-                            <button class="btn btn-light" onclick="cm.catalogoClientes();"><i class="fas fa-wave-square"></i>&nbsp;Mostrar Activos</button>
+                            <button class="btn btn-primary" onclick="cm.catalogoClientes();"><i class="fas fa-wave-square"></i>&nbsp;Mostrar Activos</button>
                         </div>
                         <div class="col-6">
                             <button class="btn btn-dark" onclick="cm.catalogoClientesInactivos();"><i class="fas fa-bank"></i>&nbsp;Mostrar Inactivos</button>

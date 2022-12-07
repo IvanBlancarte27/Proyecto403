@@ -14,7 +14,7 @@
     </div>
 </div>
 <div class="row mt-2">
-    <div id="divDetalle" class="col-12">
+    <div id="divDetalle" class="col-12 m-2">
         <div class="card">
             <div class="card-header card-hform">
                 Detalles del Empleado
@@ -48,6 +48,7 @@
                                     <div class="form-floating bg-gradient m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
                                         <label for="txtGenero" ></label>
                                         <select class="form-select" id="txtGenero" >
+                                            <option>Genero</option> 
                                             <option value="H">Hombre</option>
                                             <option value="M">Mujer</option>
                                             <option value="O">Otro</option>
@@ -96,8 +97,42 @@
                                 </div>
                                 <div class="col-12 col-md-3 mb-1 mb-md-0">                            
                                     <div class="form-floating bg- m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
-                                        <input id="txtEstado" type="text" class="form-control" />
-                                        <label for="txtEstado">Estado</label>
+                                        <label for="txtEstado"></label>
+                                        <select class="form-select" id="txtEstado">
+                                            <option>Seleccione un Estado...</option>
+                                            <option value="Aguascalientes">Aguascalientes</option>
+                                            <option value="Baja California">Baja California</option>
+                                            <option value="Baja California Sur">Baja California Sur</option>
+                                            <option value="Campeche">Campeche</option>
+                                            <option value="Chiapas">Chiapas</option>
+                                            <option value="Chihuahua">Chihuahua</option>
+                                            <option value="CDMX">Ciudad de México</option>
+                                            <option value="Coahuila">Coahuila</option>
+                                            <option value="Colima">Colima</option>
+                                            <option value="Durango">Durango</option>
+                                            <option value="Estado de México">Estado de México</option>
+                                            <option value="Guanajuato">Guanajuato</option>
+                                            <option value="Guerrero">Guerrero</option>
+                                            <option value="Hidalgo">Hidalgo</option>
+                                            <option value="Jalisco">Jalisco</option>
+                                            <option value="Michoacán">Michoacán</option>
+                                            <option value="Morelos">Morelos</option>
+                                            <option value="Nayarit">Nayarit</option>
+                                            <option value="Nuevo León">Nuevo León</option>
+                                            <option value="Oaxaca">Oaxaca</option>
+                                            <option value="Puebla">Puebla</option>
+                                            <option value="Querétaro">Querétaro</option>
+                                            <option value="Quintana Roo">Quintana Roo</option>
+                                            <option value="San Luis Potosí">San Luis Potosí</option>
+                                            <option value="Sinaloa">Sinaloa</option>
+                                            <option value="Sonora">Sonora</option>
+                                            <option value="Tabasco">Tabasco</option>
+                                            <option value="Tamaulipas">Tamaulipas</option>
+                                            <option value="Tlaxcala">Tlaxcala</option>
+                                            <option value="Veracruz">Veracruz</option>
+                                            <option value="Yucatán">Yucatán</option>
+                                            <option value="Zacatecas">Zacatecas</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-3 mb-1 mb-md-0">                            
@@ -134,8 +169,12 @@
                                 </div>
                                 <div class="col-12 col-md-4 mb-1 mb-md-0">                            
                                     <div class="form-floating bg- m-2" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
-                                        <input id="txtRol" type="text" class="form-control" />
-                                        <label for="txtRol">Rol</label>
+                                        <label for="txtRol" ></label>
+                                        <select class="form-select" id="txtRol" >
+                                            <option>Rol</option>
+                                            <option value="C">Empleado</option>
+                                            <option value="O">Administrador</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -160,8 +199,10 @@
             </div>
         </div>
     </div>
+    <div class="row">
 
-    <div id="divCatalogo" class="col-12 m-2">
+    </div>
+    <div id="divCatalogo" class="col-12 m-2" >
         <div class="card">
             <div class="card-header card-hform">
                 Listado de Empleados
@@ -173,7 +214,7 @@
                 </span>
             </div>
             <div class="card-body card-group">
-                <table id="tblEmpleados" class="table table-hover table-responsive-sm table-responsive">
+                <table id="tblEmpleados" class="table table-hover table-responsive-sm table-responsive table-dark">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -195,7 +236,7 @@
                 <div class=" col-12 col-md-4 my-2 text-center">
                     <div class="row">
                         <div class="col-6 mb-md-3">
-                            <button class="btn btn-light" onclick="cm.catalogoEmpleado();"><i class="fas fa-wave-square"></i>&nbsp;Mostrar Activos</button>
+                            <button class="btn btn-primary" onclick="cm.catalogoEmpleado();"><i class="fas fa-wave-square"></i>&nbsp;Mostrar Activos</button>
                         </div>
                         <div class="col-6">
                             <button class="btn btn-dark" onclick="cm.catalogoEmpleadoInac();"><i class="fas fa-bank"></i>&nbsp;Mostrar Inactivos</button>

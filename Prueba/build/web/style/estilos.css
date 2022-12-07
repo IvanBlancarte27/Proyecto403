@@ -63,14 +63,14 @@
     height: 50px;
     display: flex;
     justify-content: space-between;
-    background-color:#E5E8E8  ;
+    background-color:#04020B;
     width: 100%;
     top: 0;
     left: 0;
 }
 .optica_menu_item,.optica_menu_item:link,.optica_menu_item:visited,.optica_menu_item:active
 {
-    color:black;
+    color:white;
 }
 .optica_menu_item:hover
 {
@@ -86,7 +86,7 @@
 
 .producto_item,.producto_item:link,.producto_item:visited,.producto_item:active
 {
-    color:black;
+    color:white;
 }
 .producto_item:hover
 {
@@ -128,17 +128,17 @@
 
 hamburguesa
 {
-    
+
 }
 .card-hform
 {
     color: white;
-    background-color: #04272E;
+    background-color: #102B48;
 }
 
 .modulo-title
 {
-    background-color:#515A5A ;
+    background-color:#606060;
     padding-top: 0px;
     padding-bottom: 0px;
     margin-top: 5px;
@@ -188,22 +188,22 @@ hamburguesa
         width: 300px;
         text-align: center;
     }
-    
+
     .fondoLogin
     {
         background-image: url('../img/fondo_movil.png');
     }
-    
+
     .fondoMenu
     {
         background-image: url('../img/fondo_movil.png');
     }
-    
+
     .menu-imagen-logo
     {
         display: none;
     }
-    
+
     .foot
     {
         margin-top: 100%;

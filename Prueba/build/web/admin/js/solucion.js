@@ -144,10 +144,7 @@ export function eliminarSoluciones() {
                 if (data.error) {
                     alert(JSON.stringify(data));
                 } else {
-                    Swal.fire('Solucion cambiada',
-                            'con éxito',
-                            'success'
-                            );
+                    mandarConfirmacionEliminar();
                 }
 
             });
@@ -175,10 +172,7 @@ export function modificarSolucion() {
                 if (data.result) {
                     alert(JSON.stringify(data));
                 } else {
-                    Swal.fire('Solucion modificada',
-                            'con éxito',
-                            'success'
-                            );
+                    mandarConfirmacionActualizar();
                 }
 
             });
@@ -192,10 +186,6 @@ export function buscarSoluciones() {
             .then(response => response.json())
             .then(data => {
                 cargarTablaSO(data);
-                Swal.fire('Solucion encontrado',
-                        'con éxito',
-                        'success'
-                        )
 
             });
 } 

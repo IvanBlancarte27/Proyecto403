@@ -22,12 +22,7 @@ export function insertarTratamiento() {
                 if (data.error != null) {
                     alert(data.error);
                 } else {
-
-                    Swal.fire(
-                            'MUY BIEN!!!',
-                            'Tratamiento insertado correctamente',
-                            'success'
-                            );
+                    mandarConfirmacionGuardar();
                 }
 
             });
@@ -86,11 +81,11 @@ export function cargarTablaTratamiento(data) {
         contenidoTablaTratamiento += "<td>" + estatus + "</td>";
 
         contenidoTablaTratamiento += "<td><button class='btn btn-info' onclick='cm.cargarDatosFormTratamiento(" + i + ");'>Detalle</button></td>";
-        
-        if (estatus===1) {
-            contenidoTablaTratamiento+="<td><button class='btn btn-danger' onclick='cm.eliminarTratamiento();'>Eliminar</button></td>";
-        }else{
-            contenidoTablaTratamiento+="<td><button class='btn btn-success' onclick='cm.eliminarTratamiento();'>Activar</button></td>";
+
+        if (estatus === 1) {
+            contenidoTablaTratamiento += "<td><button class='btn btn-danger' onclick='cm.eliminarTratamiento();'>Eliminar</button></td>";
+        } else {
+            contenidoTablaTratamiento += "<td><button class='btn btn-success' onclick='cm.eliminarTratamiento();'>Activar</button></td>";
         }
         contenidoTablaTratamiento += "</tr>";
     }
@@ -137,22 +132,7 @@ export function eliminarTratamiento() {
                 if (data.error != null) {
                     alert(data.error);
                 } else {
-                    Swal.fire({
-                        title: '¿Estas seguro de cambiar el estatus?',
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'si, cambialo!'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire(
-                                    'Grandioso!',
-                                    'el tratamiento cambio de estatus.',
-                                    'success'
-                                    );
-                        }
-                    });
+                   mandarConfirmacionEliminar();
                 }
             });
 }
@@ -182,21 +162,7 @@ export function modificarTratamiento() {
                 if (data.error != null) {
                     alert(data.error);
                 } else {
-                    Swal.fire({
-                        title: '¿Deseas modificar el tratamiento?',
-                        showDenyButton: true,
-                        showCancelButton: true,
-                        confirmButtonText: 'Modificar',
-                        denyButtonText: `No modificar`,
-                    }).then((result) => {
-                        /* Read more about isConfirmed, isDenied below */
-                        if (result.isConfirmed) {
-                            Swal.fire('Modificado!', '', 'success')
-                        } else if (result.isDenied) {
-                            Swal.fire('No se modifico', '', 'info')
-                        }
-                    });
-
+                    mandarConfirmacionActualizar();
                 }
             });
 }
@@ -208,14 +174,7 @@ export function buscarTratamiento() {
             .then(response => response.json())
             .then(data => {
                 cargarTablaTratamiento(data);
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Se encontro el tratamiento',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-
+               
             });
 
 }

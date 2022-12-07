@@ -14,7 +14,7 @@
     </div>
 </div>
 <div class="row mt-2">
-    <div id="divDetalle" class="col-12">
+    <div id="divDetalle" class="col-12 m-2">
         <div class="card">
             <div class="card-header card-hform">
                 Detalles del Tratamiento
@@ -68,7 +68,10 @@
             </div>
         </div>
     </div>
-    <div id="divCatalogo" class="col-12">
+    <div class="row">
+        
+    </div>
+    <div id="divCatalogo" class="col-12 m-2">
         <div class="card">
             <div class="card-header card-hform">
                 Listado de Tratamientos
@@ -80,7 +83,7 @@
                 </span>
             </div>
             <div class="card-body">
-                <table id="tblTratamientos" class="table table-hover">
+                <table id="tblTratamientos" class="table table-hover table-dark">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -97,7 +100,7 @@
                 <div class=" col-12 col-md-4 my-2 text-center">
                     <div class="row">
                         <div class="col-6 mb-md-3">
-                            <button class="btn btn-light" onclick="cm.catalogoTratamiento();"><i class="fas fa-wave-square"></i>&nbsp;Mostrar Activos</button>
+                            <button class="btn btn-primary" onclick="cm.catalogoTratamiento();"><i class="fas fa-wave-square"></i>&nbsp;Mostrar Activos</button>
                         </div>
                         <div class="col-6">
                             <button class="btn btn-dark" onclick="cm.catalogoMaterialInTratamiento();"><i class="fas fa-bank"></i>&nbsp;Mostrar Inactivos</button>

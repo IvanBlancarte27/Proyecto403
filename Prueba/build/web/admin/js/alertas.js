@@ -13,9 +13,9 @@ function mandarConfirmacionActivar()
 function mandarConfirmacionEliminar()
 {
     Swal.fire({
-        position: 'top-end',
+        position: 'top-center',
         icon: 'success',
-        title: 'Eliminado correctamente',
+        title: 'Realizado Correctamente',
         showConfirmButton: false,
         timer: 1500
     });
@@ -63,11 +63,35 @@ function cancelarPresupuesto()
 function mandarError()
 {
     Swal.fire({
-        position: 'top-end',
+        position: 'top-center',
         icon: 'error',
-        title: 'Error',
+        title: 'ERROR\n\
+                Verifica los datos\n\
+                de preferencia el campo Fecha',
         showConfirmButton: false,
-        timer: 1500
+        timer: 3000
+    });
+}
+function mandarError()
+{
+    Swal.fire({
+        position: 'top-center',
+        icon: 'error',
+        title: 'ERROR\n\
+                Verifica los datos\n\
+                de preferencia el campo Fecha',
+        showConfirmButton: false,
+        timer: 3000
+    });
+}
+function mandarErrorGeneral()
+{
+    Swal.fire({
+        position: 'top-center',
+        icon: 'error',
+        title: 'ERROR',
+        showConfirmButton: false,
+        timer: 3000
     });
 }
 
@@ -77,6 +101,15 @@ function mantenimiento()
         icon: 'error',
         title: 'Oops...',
         text: 'Lo sentimos, este modulo esta en mantenimiento!'
+    })
+}
+
+function noEstatus()
+{
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Para eliminar necesitas mostrar el Detalle'
     })
 }
 
